@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, shrink-to-fit=9">	
+        <title>Sign In</title>
+        
+        <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/logo.jpg' %}"/>
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/logo.jpg' %}"/>
+        
+        <!-- style lists -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/animate.css' %}" rel="stylesheet">
+    <link href="{% static 'css/hover.css' %}" rel="stylesheet">
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+    <link href="{% static 'css/jquery.bxslider.css' %}" rel="stylesheet">
+    <link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet">
+    <link href="{% static 'css/owl.transitions.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/feature-carousel.css' %}">
+    <link href="{% static 'css/jquery-ui-1.9.2.custom.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style2.css' %}" rel="stylesheet">
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+    <link href="{% static 'css/night-mode.css' %}" rel="stylesheet">
+    <link href="{% static 'css/step-wizard.css' %}" rel="stylesheet">
+
+    <!-- Vendor Stylesheets -->
+
+		<link href="{% static 'css/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+		<link href="{% static 'css/OwlCarousel/assets/owl.carousel.css' %}" rel="stylesheet">
+		<link href="{% static 'css/OwlCarousel/assets/owl.theme.default.min.css' %}" rel="stylesheet">
+		<link href="{% static 'css/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/semantic/semantic.min.css' %}">	
+		<link href="{% static 'css/unicons-2.0.1/css/unicons.css' %}" rel='stylesheet'>
+
+    <!-- montserrat font embed -->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,700' rel='stylesheet' type='text/css'>
+		
+    </head>
+    
+    <body>
+        <div>
+            {% for message in messages %}
+            <script>
+                alert("{{message}}");
+            </script>
+        
+            {% endfor %}
+        </div>
+        <div class="sign-inup">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-5">
+                        <div class="sign-form">
+                            <div class="sign-inner">
+                                <div class="sign-logo" id="logo">
+                                    <a href="{% url 'Home' %}"><img src="{% static 'images/logo3.jpeg' %}" alt=""></a>
+                                </div>
+                                <div class="form-dt">
+                                    <form action="{% url 'Login' %}" method="POST">
+                                        {% csrf_token %}
+                                    <div class="form-inpts1 checout-address-step">
+                                            <div class="form-title text-uppercase text-lt text-sp"><h6>Sign In</h6></div>
+                                            <hr style="border-top: 2px solid #f1cb0a; padding-bottom: 2%;">
+                                            <div class="form-group pos_rel text-uppercase text-lt text-sp">
+                                                <input id="email" name="email" type="email" placeholder="Enter Email Address" class="form-control lgn_input" required="">
+                                                
+                                            </div>
+                                            <div class="form-group pos_rel text-uppercase text-lt text-sp">
+                                                <input id="password" name="password" type="password" placeholder="Enter Password" class="form-control lgn_input" required="">
+                                               
+                                            </div>
+                                            <input id="loginbtn" class="login-btn hover-btn" type="submit" value="Sign In Now"  style="color: black; background-color: #f1cb0a;">
+                                    </div>
+                                    </form>
+                                    <!-- <div class="password-forgor text-uppercase text-lt text-sp"  style="text-align: center; padding-top: 2%;">
+                                        <a href="{% url 'PasswordReset' %}">Forgot Password?</a>
+                                    </div> -->
+                                    <!-- <div class="password-forgor text-uppercase text-lt text-sp"  style="text-align: center; padding-top: 2%;">
+                                        <a href="">Admin Login</a>
+                                    </div> -->
+                                    <div class="signup-link text-uppercase text-lt text-sp"  style="text-align: center; padding-top: 2%;">
+                                        <p>Don't have an account? - <a href="{% url 'Register' %}">Sign Up Now</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="copyright-text text-center mt-3">
+                            <i class="uil uil-copyright"></i>Copyright 2020 <b>Nutricraftors</b> . All rights reserved
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="{% static 'css/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'css/OwlCarousel/owl.carousel.js' %}"></script>
+        <script src="{% static 'css/semantic/semantic.min.js' %}"></script>
+    
+    </body>
+</html>

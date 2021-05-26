@@ -1,0 +1,79 @@
+{% extends "adminbase.html" %}
+{% load static %}
+{% block title %}Add Image{% endblock %}
+{% block content %}
+{% for p in plan %}
+<!-- ============== blog block starts ============== -->
+            <section class="blog-block">
+                <div class="container">
+                    <!-- == top header text starts == -->
+                    <div class="top-text-header text-center wow fadeInUp">
+                        <a href="#" class="add-cart-btn hover-btn text-capitalize pull-right read-more-btn text-lt text-sp" style="color: black; float: right; background-color:rgb(250, 183, 14); padding: 8px 8px 8px 8px;">Back to Home</a>
+                        <h4 class="text-uppercase text-lt text-sp">Add New Image</h4>
+                        <h2 style="color: red;">Please Choose image with resolution [ {{size}}] only</h2>
+                        <hr style="border-top: 2px solid #f1cb0a; padding-bottom: 2%;">
+                    </div>
+                    <!-- == top header text ends == -->
+
+                    <!-- == blog row starts == -->
+                    <div class="row">
+                        
+                        <!-- blog single starts -->
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="card card-static-2 mb-30">
+                                        <!-- <div class="card-title-2">
+                                            <h4>Add New Image</h4>
+                                        </div> -->
+                                        <div class="card-body-table">
+                                            <div class="news-content-right pd-20">                
+                                                <form action="{% url 'AddNewImage' ogname ogplan %"  id="myform" method="POST" enctype="multipart/form-data">
+                                                    {% csrf_token %}
+                                                    <!-- {{form.as_p}} -->
+                                                    <div class="form-group">
+                                                        <label class="form-label">Product Name*</label>
+                                                        <input type="hidden" name="name" value="{{p.name}}">
+                                                        <input type="text" id="pname" name="name1" class="form-control" id="product" placeholder="Name" value="{{p.name}}" disabled>
+                                                    </div>
+                                                    <script>
+                                                        function showImage(event){
+                                                            if(event.target.files.length>0){
+                                                                var src=URL.createObjectURL(event.target.files[0]);
+                                                                var preview=document.getElementById("myImg");
+                                                                preview.src=src;
+                                                            }
+                                                        }
+                                                    </script>
+                                                    <div class="form-group">
+                                                        <label class="form-label">Image*</label>
+                                                        <div class="input-group">
+                                                            <div class="custom-file">
+                                                                <input type="file" name="myFile" class="custom-file-input" accept="image/*" value="" id="file" aria-describedby="inputGroupFileAddon04" onchange="showImage(event)" required>
+        
+                                                                <label class="custom-file-label" for="inputGroupFile041">Choose Image</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="add-cate-img-1">
+                                                            <img id="myImg" src="/media/{{p.image}}" alt="">
+                                                        </div>
+                                                    </div>
+                                                <button href="#" type="submit" class="add-cart-btn hover-btn text-capitalize read-more-btn text-lt text-sp" style="color: black; float: left; background-color:rgb(250, 183, 14); padding: 8px 8px 8px 8px;">Update Image</button>
+                                            </form>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- blog single ends -->
+                        
+                        
+
+                    </div>
+                    <!-- == blog row ends == -->
+                </div>
+            </section>
+            {% endfor %}
+            <!-- ============== blog block ends ============== -->
+{% endblock %}

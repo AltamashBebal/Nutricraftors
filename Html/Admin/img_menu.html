@@ -1,0 +1,86 @@
+{% extends "adminbase.html" %}
+{% load static %}
+{% block title %}Update Images{% endblock %}
+{% block content %}
+
+<!-- ============== blog block starts ============== -->
+            <section class="blog-block">
+                <div class="container">
+                    <!-- == top header text starts == -->
+                    <div class="top-text-header text-center wow fadeInUp">
+                        <a href="{% url 'AdminHome' %}" class="add-cart-btn hover-btn text-capitalize pull-right read-more-btn text-lt text-sp" style="color: black; float: right; background-color:rgb(250, 183, 14); padding: 8px 8px 8px 8px;">Back to Home</a>
+                        <h4 class="text-uppercase text-lt text-sp">Update Image</h4>
+                        <hr style="border-top: 2px solid #f1cb0a; padding-bottom: 2%;">
+                    </div>
+                    <!-- == top header text ends == -->
+
+                    <!-- == blog row starts == -->
+                    <div class="row">
+
+                        <!-- blog single starts -->
+                        <div class="col-xs-12 col-sm-3 wow fadeInUp blog-single">
+                            <div class="blog-single-wrap">
+                                <div class="nutri-card" style="margin: 0 auto;">
+                                    <h3 class="text-uppercase text-lt text-sp">Upload Image to </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- blog single ends -->
+
+                        <!-- blog single starts -->
+                        <div class="col-xs-12 col-sm-6 wow fadeInLeft blog-single">
+                            <div class="blog-single-wrap">
+                                
+                                <div class="panel-group accordion">
+                                            
+                                    <div class="panel panel-default" style="background-color: #f1cb0a;">
+                                        <a href="{% url 'ViewImage' 'HomeImage' %}">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">
+                                                    <strong style="color: black;">Home page</strong>
+                                            </div>
+                                        </div>
+                                        </a>
+                                    </div>
+                                    <div class="panel panel-default" style="background-color: #f1cb0a;">
+                                        <a href="{% url 'ViewImage' 'FeaturedImage' %}">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">
+                                                    <strong style="color: black;">Featured Images</strong>
+                                            </div>
+                                        </div>
+                                        </a>
+                                    </div>
+                                    <div class="panel panel-default" style="background-color: #f1cb0a;">
+                                        <a href="{% url 'ViewImage' 'MealBox' %}">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">
+                                                <strong style="color: black;">Mealplans page</strong>
+                                            </div>
+                                        </div>
+                                        </a>
+                                    </div>
+                                    <div class="panel panel-default" style="background-color: #f1cb0a;">
+                                        <a href="{% url 'ViewImage' 'TransformationPlan' %}">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">
+                                                <strong style="color: black;">Transformation page</strong>
+                                            </div>
+                                        </div>
+                                        </a>
+                                    </div>	
+                                            
+                                </div>
+                            </div>
+                        </div>
+                        <!-- blog single ends -->
+
+                        
+
+
+                    </div>
+                    <!-- == blog row ends == -->
+                </div>
+            </section>
+            <!-- ============== blog block ends ============== -->
+{% endblock %}

@@ -1,0 +1,43 @@
+.nutri-logo img {width: 200px; margin: auto; margin-top: 20px; margin-bottom: 10px;}
+
+.sign-logo {
+    padding-top: 20px;
+    width: 100%;
+	text-align: center;
+}
+
+.sign-logo img {
+    width: 150px;
+}
+
+.form-title {
+    text-align: center;
+	margin-bottom: 37px;
+}
+
+.form-title h6 {
+	font-weight: 700;
+	color: #2b2f4c;
+	font-size: 18px;
+}
+
+.form-dt {
+    margin-top: 50px;
+    border: 1px solid #efefef;
+	position: relative;
+	border-radius: 5px;
+	background: #fff;
+}
+
+.img-add{vertical-align: bottom;height: 150px;}
+
+.menu.dropdown_page {
+	width: 220px;
+    margin-top: 14px !important;
+    border-top: 1px solid #fff !important;
+    border-radius: 3px !important;
+    min-width: 170px !important;
+    padding-bottom: 5px !important;
+}
+
+

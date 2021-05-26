@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+{% block title %}Nutricraftors - Transformation Know More{% endblock %}
+{% for t in tran %}
+
+
+<!-- ============== blog block starts ============== -->
+            <section class="blog-block">
+                <div class="container">
+                    <!-- == top header text starts == -->
+                    
+                    <!-- == top header text ends == -->
+
+                    <!-- == blog row starts == -->
+                    <div class="row">
+                        <!-- blog single starts -->
+                        <div class="col-xs-12 col-sm-6 wow fadeInLeft blog-single">
+                            <div class="blog-single-wrap">
+                                <img src="/media/{{t.image}}" alt="Blog image" style="width: 100%; padding: 5% 8% 0% 5%;"/>
+                                
+                            </div>
+                        </div>
+                        <!-- blog single ends -->
+                        <form action="{% url 'OrderTransformationPlan' %}" method="POST">
+                            {% csrf_token %}
+                        <!-- blog single starts -->
+                        <div class="col-xs-12 col-sm-6 wow fadeInUp blog-single">
+                            <div class="blog-single-wrap">
+                                <div>
+                                    <h3 class="text-uppercase text-lt text-sp" style="color: black;">{{t.name}}</h3>
+                                    <hr style="border-top: 2px solid #f1cb0a; padding-bottom: 2%;">
+                                    <h5 class="text-uppercase text-lt text-sp" style="color: black; font-weight: 500; ">Customize</h5>
+                                    <div class="col-xs-12 col-sm-3">
+                                        <h6 class="text-lt text-sp" style="color: black;">Jain/Veg</h6>
+                                        <select name="vegOrJain">
+                                            <option value="Jain" >Jain</option>
+                                            <option value="Veg">Veg</option>
+                                        </select> </div> 
+                                        <h6 class="text-lt text-sp" style="color: black;">Type of Plan</h6>
+                                        <select id="type" name="type">
+                                            <option value="Basic Weight Loss Plan">Basic Weight Loss Plan</option>
+                                            <option value="Balanced Meal Plan">Balanced Meal Plan</option>
+                                            <option value="Keto Plan">Keto Plan</option>
+                                        </select>
+                                    <input type="hidden" id="total" name="image" value="{{t.image}}" required>   
+                                    <input type="hidden" id="total" name="planName" value="{{t.name}}" required>
+
+                                     <input type="hidden" id="total" name="total" value="{{t.price}}" required>   
+                                    <h2 id="price"  class="text-uppercase text-lt text-sp" style="color: #f1cb0a;">₹ {{t.price}}</h2>
+                                    <h5 class="text-lt text-sp" style="color: black; font-weight: 500; ">Description</h5>
+                                    <p class="text-lt text-sp" style="color: black; font-weight: 100;">{{t.description}}</p>
+                                    <hr  style="border-top: 2px solid #f1cb0a; padding-bottom: 2%;">
+                                    <button href="#" class="add-cart-btn hover-btn text-capitalize pull-right read-more-btn text-lt text-sp" style="color: black; float: right; background-color:rgb(250, 183, 14); padding: 10px 10px 10px 10px; font-size: large;"><i class="uil uil-shopping-cart-alt"></i>Order Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                        <!-- blog single ends -->
+<script>
+    $("#type").change(function() {
+        // document.getElementById('price').innerHTML="₹ "+100;
+});
+</script>
+
+                    </div>
+                    <!-- == blog row ends == -->
+                </div>
+            </section>
+            {% endfor %}
+            <!-- ============== blog block ends ============== -->
+{% endblock %}

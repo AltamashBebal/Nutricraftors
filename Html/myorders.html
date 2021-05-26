@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Orders{% endblock %}
+{% block content %}
+
+<!-- ============== blog block starts ============== -->
+            <section class="blog-block" style="color: white;">
+                <div class="container">
+                    <!-- == top header text starts == -->
+                    <div class="top-text-header text-center wow fadeInUp" style="margin-bottom: 1%;">
+                        <a href="{% url 'Home' %}" class="add-cart-btn hover-btn text-capitalize pull-right read-more-btn text-lt text-sp" style="color: black; float: right; background-color:rgb(250, 183, 14); padding: 8px 8px 8px 8px;">Back to Home</a>
+                        <h4 class="text-uppercase text-lt text-sp">My Orders</h4>
+                        <hr style="border-top: 2px solid #f1cb0a;">
+                    </div>
+                    <!-- == top header text ends == -->
+
+                    <!-- == blog row starts == -->
+                    <div class="row">
+
+                        <!-- blog single starts -->
+                        <div class="col-xs-12 col-sm-3 wow fadeInUp blog-single">
+                            <!-- <div class="blog-single-wrap">
+                                <div class="nutri-card" style="margin: 0 auto;">
+                                    <h3 class="text-uppercase text-lt text-sp">Proceed to page</h3>
+                                </div>
+                            </div> -->
+                        </div>
+                        <!-- blog single ends -->
+
+                        <!-- blog single starts -->
+                        <div class="col-xs-12 col-sm-6 wow fadeInLeft blog-single">
+                            <div class="blog-single-wrap">
+                                
+                                <div class="panel-group accordion">
+                                            
+                                    <div class="panel panel-default" style="background-color: #f1cb0a;">
+                                        <a href="{% url 'OrderForMealsUser' %}">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">
+                                                <strong style="color: black;">Mealbox Orders</strong>
+                                            </div>
+                                        </div>
+                                        </a>
+                                    </div>
+                                    <div class="panel panel-default" style="background-color: #f1cb0a;">
+                                        <a href="{% url 'OrderForTransUser' %}">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">
+                                                <strong style="color: black;">Transformation Orders</strong>
+                                            </div>
+                                        </div>
+                                        </a>
+                                    </div>	
+                                            
+                                </div>
+                            </div>
+                        </div>
+                        <!-- blog single ends -->
+
+                        
+
+
+                    </div>
+                    <!-- == blog row ends == -->
+                </div>
+            </section>
+            <!-- ============== blog block ends ============== -->
+{% endblock %}

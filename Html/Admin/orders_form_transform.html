@@ -1,0 +1,72 @@
+{% extends "adminbase.html" %}
+{% load static %}
+{% block title %}Nutricraftors-transformation Order Detail{% endblock %}
+{% block content %}
+<!-- ============== blog block starts ============== -->
+            <section class="blog-block">
+                <div class="container">
+                    <!-- == top header text starts == -->
+                    <div class="top-text-header text-center wow fadeInUp">
+                        <a href="{% url 'AdminHome' %}" class="add-cart-btn hover-btn text-capitalize pull-right read-more-btn text-lt text-sp" style="color: black; float: right; background-color:rgb(250, 183, 14); padding: 8px 8px 8px 8px;">Back to Home</a>
+            <h4 class="text-uppercase text-lt text-sp">Transformation Order Detail</h4>
+            <a id="call" href="tel:{{contact}}">Call {{name}}</a>
+
+                        <hr style="border-top: 2px solid #f1cb0a; padding-bottom: 2%;">
+                    </div>
+                    <!-- == top header text ends == -->
+
+                    <!-- == blog row starts == -->
+                    <div class="row">
+                        
+                        <!-- blog single starts -->
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="card card-static-2 mb-30">
+                                        <!-- <div class="card-title-2">
+                                            <h4>Add New Image</h4>
+                                        </div> -->
+                                        <div class="card-body-table">
+                                            <div class="news-content-right pd-20">
+             
+                
+                                                <form action="{% url 'OrderTransEdit' orderId %}"  id="myform" method="POST">
+                                                    {% csrf_token %}
+                                                <div class="form-group">
+                                                    <label class="form-label">Customer's Name</label>
+                                                    <input type="text" id="pname" name="name" class="form-control" id="product" value="{{name}}" placeholder="Name" disabled>
+                                                    <label class="form-label">Customer's Contact</label>
+                                                    <input type="text" id="pname" name="name" class="form-control" id="product" value="{{contact}}" placeholder="Name" disabled>
+                                                    <label class="form-label">Order Id</label>
+                                                    <input type="text" id="pname" name="name" class="form-control" id="product" value="{{orderId}}" placeholder="Name" disabled>
+
+                                                   
+                                                    <label class="form-label">Type</label>
+                                                    <input type="text" id="pname" name="name" class="form-control" id="product" value="{{type}}" placeholder="Name" disabled>
+                                                    <label class="form-label">Veg or Jain</label>
+                                                    <input type="text" id="pname" name="name" class="form-control" id="product" value="{{vegOrJain}}" placeholder="Name" disabled>
+                                                    <label class="form-label">Total</label>
+                                                    <input type="text" id="pname" name="name" class="form-control" id="product" value="{{total}}" placeholder="Name" disabled>
+                                                    <label class="form-label">Status</label>
+                                                    <input type="text" id="pname" name="status" class="form-control" id="product" value="{{status}}" placeholder="Name" required>
+                                                </div>
+                                                
+                                                <button href="#" class="add-cart-btn hover-btn text-capitalize read-more-btn text-lt text-sp" style="color: black; float: right; background-color:rgb(250, 183, 14); padding: 10px;">Update Status</button>
+                       
+                                            </form>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- blog single ends -->
+                        
+                        
+
+                    </div>
+                    <!-- == blog row ends == -->
+                </div>
+            </section>
+            <!-- ============== blog block ends ============== -->
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Choose Plans{% endblock %}
+{% block content %}
+<!-- ============== blog block starts ============== -->
+            <section class="blog-block">
+                <div class="container">
+                    <!-- == top header text starts == -->
+                    <div class="top-text-header text-center wow fadeInUp">
+                        <h4 class="text-uppercase text-lt text-sp">Choose From Plans</h4>
+                        <hr style="border-top: 2px solid #f1cb0a; padding-bottom: 2%;">
+                    </div>
+                    <!-- == top header text ends == -->
+
+                    <!-- == blog row starts == -->
+                    <div class="row">
+                        <!-- blog single starts -->
+                        <div class="col-xs-12 col-sm-4 wow fadeInLeft blog-single">
+                            <div class="blog-single-wrap">
+                                <figure><a href="{% url 'Transformation' %}"><img src="{% static 'images/blog-image1.jpg' %}" alt="Blog image" /></a></figure>
+                                <div class="blog-description">
+                                    <h6 class="text-uppercase"><a href="#" class="text-lt text-sp">100% Transformation Challenge Packages</a></h6>
+                                    <span class="posted-date">Price Range ₹ 5490-21990 </span>
+                                    <p>Nutricraftor deliver you the meal according to your body type and we also
+                                        assigned you a personally ...    
+                                    </p>
+                                    <span class="comments-count">3 Packages Types</span>
+                                    <a href="{% url 'Transformation' %}" class="text-capitalize pull-right read-more-btn text-lt text-sp">Continue</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- blog single ends -->
+
+                        <!-- blog single starts -->
+                        <div class="col-xs-12 col-sm-4 wow fadeInUp blog-single">
+                            <div class="blog-single-wrap">
+                                <figure><a href="{% url 'Mealbox' %}"><img src="{% static 'images/blog-image3.jpg' %}" alt="Blog image" /></a></figure>
+
+                                <div class="blog-description">
+                                    <h6 class="text-uppercase"><a href="#" class="text-lt text-sp">Meal Box For Single Day Purpose</a></h6>
+                                    <span class="posted-date">Price Range ₹ 199-899</span>
+                                    <p>Healthy and tasty meal prepared with exotic vegetables which can provide essential vitamins, minerals, and other ...
+                                        
+                                    </p>
+                                    <span class="comments-count">2 Meal Box Types</span>
+                                    <a href="{% url 'Mealbox' %}" class="text-capitalize pull-right read-more-btn text-lt text-sp">Continue</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- blog single ends -->
+
+                    </div>
+                    <!-- == blog row ends == -->
+                </div>
+            </section>
+            <!-- ============== blog block ends ============== -->
+{% endblock %}

@@ -1,0 +1,276 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Nutricraftors - Know More{% endblock %}
+{% block content %}
+
+{% for m in meal %}
+            <section class="blog-block">
+                <form class="container" action="{% url 'OrderMealPlan' %}" method="POST">
+    
+                        {% csrf_token %}
+
+                    <div class="row">
+                     
+                        <div class="col-xs-12 col-sm-6 wow fadeInLeft blog-single">
+                            <div class="blog-single-wrap">
+                                <img src="/media/{{m.image}}" alt="Blog image" style="width: 100%; padding: 5% 8% 0% 5%;"/>
+                                
+                            </div>
+                        </div>
+                       
+                        <div class="col-xs-12 col-sm-6 wow fadeInUp blog-single">
+                            <div class="blog-single-wrap">
+                                <div>
+                                    <h3 class="text-uppercase text-lt text-sp" style="color: black;">{{m.name}}</h3>
+                                    <hr style="border-top: 2px solid #f1cb0a; padding-bottom: 2%;">
+                                    <h5 class="text-uppercase text-lt text-sp" style="color: black; font-weight: 500; ">Weight Loss</h5>
+                                    <h6 class="text-lt text-sp" style="color: black;">No. of Meals</h6>
+                                    <select id="menu" name="menu">
+                                        <option value="Only Lunch">Only Lunch</option>
+                                        <option value="Only Dinner">Only Dinner</option>
+                                        <option value="Lunch + Dinner">Lunch + Dinner</option>
+                                        <option value="FULL DAY BOX (4 MEAL)">FULL DAY BOX (4 MEAL) </option>
+
+                                    </select> <br>
+                                    <!-- <div class="checkbox-inline">
+                                        <input type="checkbox" id="drink" name="drink">
+                                    <label for="drink" class="text-uppercase text-lt text-sp">Add Drink</label>
+                                    </div> <br>-->
+                                    <div id="okay" class="checkbox-inline">
+                                        <input  type="checkbox"  id="snack" value="no">
+                                    <label for="drink" class="text-uppercase text-lt text-sp">Add Snack (₹ 190)</label>
+                                    </div> <br> 
+                                    <div id="okay2" class="checkbox-inline">
+                                        <input type="checkbox"  id="breakfast" value="no"  >
+                                    <label for="drink" class="text-uppercase text-lt text-sp">Add Breakfast (₹ 190)</label>
+                                    </div>
+                                    <input type="text" name="price" value="349" id="price" hidden>
+                                    <input type="text" name="image" value="{{m.image}}" id="price" hidden>
+                                    <input type="text" id="snack2" value="no"  name="snack" hidden>
+                                    <input type="text" id="breakfast2" value="no"  name="breakfast" hidden>
+                                    <input type="hidden" name="planName" value="{{m.name}}" required>
+
+                                    <h2 class="text-uppercase text-lt text-sp" id="total"  style="color: #f1cb0a;">₹ 349</h2>
+                                    <h5 class="text-lt text-sp" style="color: black; font-weight: 500; ">Description</h5>
+                                    <p class="text-lt text-sp" style="color: black; font-weight: 100;">{{m.description}}</p>
+                                    <hr style="border-top: 2px solid #f1cb0a; padding-bottom: 2%;">
+                                    <button href="#" class="add-cart-btn hover-btn text-capitalize pull-right read-more-btn text-lt text-sp" style="color: black; float: right; background-color:rgb(250, 183, 14); padding: 10px 10px 10px 10px; font-size: large;"><i class="uil uil-shopping-cart-alt"></i>Order now</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+                    
+                </div>
+            </section>
+            
+            <script>
+          $(document).ready(function(){
+            $('#snack').click(function(){
+                if($(this).is(":checked")){
+                    var total=document.getElementById('price').value;
+                    // console.log(total);
+                    total=parseInt(total)
+                    total=total+190;
+                    document.getElementById('total').innerHTML="₹ "+total;
+                    document.getElementById('price').value=total;
+                    $(this).val("yes");
+                    $("#snack2").val("yes");
+                    // console.log($(this).val())
+                }
+                else if($(this).is(":not(:checked)")){
+                    // console.log("Checkbox is unchecked.");  
+                    var total=document.getElementById('price').value;
+                    // console.log(total);
+                    total=parseInt(total)
+                    total=total-190;
+                    document.getElementById('total').innerHTML="₹ "+total;
+                    document.getElementById('price').value=total;
+                    $(this).val("no");
+                    $("#snack2").val("no");
+                    // console.log($(this).val())
+                }
+            });
+        });
+            </script>
+
+        <script>
+        $(document).ready(function(){
+        $('#breakfast').click(function(){
+            if($(this).is(":checked")){
+                var total=document.getElementById('price').value;
+                // console.log(total);
+                total=parseInt(total)
+                total=total+190;
+                document.getElementById('total').innerHTML="₹ "+total;
+                document.getElementById('price').value=total;
+                $(this).val("yes");
+                $("#breakfast2").val("yes");
+                    // console.log($(this).val())
+            }
+            else if($(this).is(":not(:checked)")){
+                // console.log("Checkbox is unchecked.");  
+                var total=document.getElementById('price').value;
+                // console.log(total);
+                total=parseInt(total)
+                total=total-190;
+                document.getElementById('total').innerHTML="₹ "+total;
+                document.getElementById('price').value=total;
+                $(this).val("no");
+                $("#breakfast2").val("no");
+                    // console.log($(this).val())
+            }
+        });
+    });
+      </script>
+
+           <script>
+
+            $("#menu").change(function() {
+            
+        var val=document.getElementById("menu").value
+        // console.log();
+        if(val=="Only Lunch"){
+            document.getElementById('price').value=349;
+            document.getElementById('total').innerHTML="₹ "+349;
+            $("#okay").show();
+            $("#okay2").show();
+            if($("#snack").is(":checked")){
+                    var total=document.getElementById('price').value;
+                    // console.log(total);
+                    total=parseInt(total)
+                    total=total+190;
+                    document.getElementById('total').innerHTML="₹ "+total;
+                    document.getElementById('price').value=total;
+                }
+                else if($("#snack").is(":not(:checked)")){
+                    // console.log("Checkbox is unchecked.");  
+                    var total=document.getElementById('price').value;
+                    // console.log(total);
+                    total=parseInt(total)
+                    // total=total-190;
+                    document.getElementById('total').innerHTML="₹ "+total;
+                    document.getElementById('price').value=total;
+                }
+
+                if($("#breakfast").is(":checked")){
+                    var total=document.getElementById('price').value;
+                    // console.log(total);
+                    total=parseInt(total)
+                    total=total+190;
+                    document.getElementById('total').innerHTML="₹ "+total;
+                    document.getElementById('price').value=total;
+                }
+                else if($("#breakfast").is(":not(:checked)")){
+                    // console.log("Checkbox is unchecked.");  
+                    var total=document.getElementById('price').value;
+                    // console.log(total);
+                    total=parseInt(total)
+                    // total=total-190;
+                    document.getElementById('total').innerHTML="₹ "+total;
+                    document.getElementById('price').value=total;
+                }  
+            // document.getElementById('total').innerHTML="₹ "+349;
+            // document.getElementById('price').value=349;
+        }else if(val=="Only Dinner")
+        {
+            document.getElementById('price').value=349;
+            document.getElementById('total').innerHTML="₹ "+349;
+
+            $("#okay").show();
+            $("#okay2").show();
+            if($("#snack").is(":checked")){
+                    var total=document.getElementById('price').value;
+                    // console.log(total);
+                    total=parseInt(total)
+                    total=total+190;
+                    document.getElementById('total').innerHTML="₹ "+total;
+                    document.getElementById('price').value=total;
+                }
+                else if($("#snack").is(":not(:checked)")){
+                    // console.log("Checkbox is unchecked.");  
+                    var total=document.getElementById('price').value;
+                    // console.log(total);
+                    total=parseInt(total)
+                    // total=total-190;
+                    document.getElementById('total').innerHTML="₹ "+total;
+                    document.getElementById('price').value=total;
+                }
+
+                if($("#breakfast").is(":checked")){
+                    var total=document.getElementById('price').value;
+                    // console.log(total);
+                    total=parseInt(total)
+                    total=total+190;
+                    document.getElementById('total').innerHTML="₹ "+total;
+                    document.getElementById('price').value=total;
+                }
+                else if($("#breakfast").is(":not(:checked)")){
+                    // console.log("Checkbox is unchecked.");  
+                    var total=document.getElementById('price').value;
+                    // console.log(total);
+                    total=parseInt(total)
+                    // total=total-190;
+                    document.getElementById('total').innerHTML="₹ "+total;
+                    document.getElementById('price').value=total;
+                }
+        }
+        else if(val=="Lunch + Dinner"){
+            document.getElementById('price').value=700;
+            document.getElementById('total').innerHTML="₹ "+700;
+            $("#okay").show();
+            $("#okay2").show();
+            if($("#snack").is(":checked")){
+                    var total=document.getElementById('price').value;
+                    // console.log(total);
+                    total=parseInt(total)
+                    total=total+190;
+                    document.getElementById('total').innerHTML="₹ "+total;
+                    document.getElementById('price').value=total;
+                }
+                else if($("#snack").is(":not(:checked)")){
+                    // console.log("Checkbox is unchecked.");  
+                    var total=document.getElementById('price').value;
+                    // console.log(total);
+                    total=parseInt(total)
+                    // total=total-190;
+                    document.getElementById('total').innerHTML="₹ "+total;
+                    document.getElementById('price').value=total;
+                }
+
+                if($("#breakfast").is(":checked")){
+                    var total=document.getElementById('price').value;
+                    // console.log(total);
+                    total=parseInt(total)
+                    total=total+190;
+                    document.getElementById('total').innerHTML="₹ "+total;
+                    document.getElementById('price').value=total;
+                }
+                else if($("#breakfast").is(":not(:checked)")){
+                    // console.log("Checkbox is unchecked.");  
+                    var total=document.getElementById('price').value;
+                    // console.log(total);
+                    total=parseInt(total)
+                    // total=total-190;
+                    document.getElementById('total').innerHTML="₹ "+total;
+                    document.getElementById('price').value=total;
+                }
+        }
+        else if(val=="FULL DAY BOX (4 MEAL)"){
+            $("#okay").hide();
+            $("#okay2").hide();
+            $("#snack").val("yes");
+            $("#breakfast").val("yes");
+            $("#snack2").val("yes");
+            $("#breakfast2").val("yes");
+            // console.log($("#snack").val())
+            // console.log($("#breakfast").val())
+            document.getElementById('total').innerHTML="₹ "+899;
+            document.getElementById('price').value=899;
+        }
+            });
+        
+           </script>
+            {% endfor %}
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "adminbase.html" %}
+{% load static %}
+{% block title %}Subscribers{% endblock %}
+{% block content %}
+ 
+<!-- ============== blog block starts ============== -->
+            <section class="blog-block">
+                <div class="container">
+                    <!-- == top header text starts == -->
+                    <div class="top-text-header text-center wow fadeInUp">
+                        <h4 class="text-uppercase text-lt text-sp" style="color: black;">Subscribers</h4>
+                    </div>
+                    
+                    <hr style="border-top: 2px solid #f1cb0a; padding-bottom: 2%;">
+                    <!-- == top header text ends == -->
+
+                    <!-- == blog row starts == -->
+                    <div class="row">
+
+                        <!-- blog single starts -->
+                        <div class="col-xs-12 col-sm-12 wow fadeInUp blog-single">
+                            
+							<div class="col-lg-12 col-md-12">
+								<div class="card card-static-2 mb-30">
+									<!-- <div class="card-title-2">
+										<h4>All Orders</h4> 
+									</div> -->
+									<div class="card-body-table">
+										<div class="table-responsive">
+											<table class="table ucp-table table-hover">
+												<thead>
+													<tr>
+														<!-- <th style="width:60px"><input type="checkbox" class="check-all"></th>
+														<th>Name</th> -->
+														<th>Email Id</th>
+													</tr>
+												</thead>
+												<tbody>
+													{% for s in subs %}
+													<tr>
+														<!-- <td><input type="checkbox" class="check-item" name="ids[]" value="4"></td>
+														<td>
+															Your Name
+														</td> -->
+														<td>
+															<span>{{s.email}}</span>
+														</td>
+													</tr>
+													{%endfor%}
+													
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+                        </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+                        <!-- blog single ends -->
+
+
+                    </div>
+                    <!-- == blog row ends == -->
+                </div>
+            </section>
+            <!-- ============== blog block ends ============== -->
+{% endblock %}

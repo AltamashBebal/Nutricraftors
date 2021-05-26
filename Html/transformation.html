@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Transformation Plans{% endblock %}
+{% block content %}
+<!-- ============== blog block starts ============== -->
+            <section class="blog-block">
+                <div class="container">
+                    <!-- == top header text starts == -->
+                    <div class="top-text-header text-center wow fadeInUp">
+                        <h4 class="text-uppercase text-lt text-sp">100% Transformation Plans</h4>
+                        <hr style="border-top: 2px solid #f1cb0a; padding-bottom: 2%;">
+                    </div>
+                    <!-- == top header text ends == -->
+
+                    <!-- == blog row starts == -->
+                    <div class="row">
+                        <!-- blog single starts -->
+                        {% for t in trans %}
+                        <div class="col-xs-12 col-sm-4 wow fadeInLeft blog-single">
+                            <div class="blog-single-wrap">
+                                <figure><a href="{% url 'TransformationKnowMore' t.name %}"><img src="/media/{{t.image}}" alt="Blog image" /></a></figure>
+                                <div class="blog-description">
+                                    <h6 class="text-uppercase"><a href="#" class="text-lt text-sp">{{t.name}}</a></h6>
+                                    <span class="posted-date">Price Range ₹ {{t.price}}</span>
+                                    <p>{{ t.minidescription }}</p>
+                                    <span class="comments-count">{{t.weeks}} Week Program</span>
+                                    <a href="{% url 'TransformationKnowMore' t.name %}" class="text-capitalize pull-right read-more-btn text-lt text-sp">Know More</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <!-- blog single ends -->
+
+    
+                        <!-- blog single ends -->
+
+                    </div>
+                    <!-- == blog row ends == -->
+                </div>
+            </section>
+            <!-- ============== blog block ends ============== -->
+{% endblock %}

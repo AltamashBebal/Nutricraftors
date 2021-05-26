@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Mealbox Plans{% endblock %}
+{% block content %}
+<!-- ============== blog block starts ============== -->
+            <section class="blog-block">
+                <div class="container">
+                    <!-- == top header text starts == -->
+                    <div class="top-text-header text-center wow fadeInUp">
+                        <h4 class="text-uppercase text-lt text-sp">Meal Box Plans</h4>
+                        <hr style="border-top: 2px solid #f1cb0a; padding-bottom: 2%;">
+                    </div>
+                    <!-- == top header text ends == -->
+
+                    <!-- == blog row starts == -->
+                    <div class="row">
+                        <!-- blog single starts -->
+                        {% for m in meal %}
+                        <div class="col-xs-12 col-sm-4 wow fadeInLeft blog-single">
+                            <div class="blog-single-wrap">
+                                <figure><a href="{% url 'MealboxKnowMore' m.name %}"><img src="/media/{{m.image}}" alt="Blog image" /></a></figure>
+                                <div class="blog-description">
+                                    <h6 class="text-uppercase"><a href="#" class="text-lt text-sp">{{m.name}}</a></h6>
+                                    <span class="posted-date">Price Range ₹ {{m.price}}</span>
+                                    <p>{{m.description}}</p>
+                                    <span class="comments-count">3 Choices Available</span>
+                                    <a href="{% url 'MealboxKnowMore' m.name %}" class="text-capitalize pull-right read-more-btn text-lt text-sp">Know More</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <!-- blog single ends -->
+
+                        <!-- blog single starts -->
+                        <!-- <div class="col-xs-12 col-sm-4 wow fadeInUp blog-single">
+                            <div class="blog-single-wrap">
+                                <figure><a href="#"><img src="{% static 'images/blog-image2.jpg' %}" alt="Blog image" /></a></figure>
+                                <div class="blog-description">
+                                    <h6 class="text-uppercase"><a href="#" class="text-lt text-sp">Meal Box For Single Day Purpose</a></h6>
+                                    <span class="posted-date">Price Range X-Y</span>
+                                    <p>Description of packages conataining veg </p>
+                                    <span class="comments-count">3 Choices Available</span>
+                                    <a href="#" class="text-capitalize pull-right read-more-btn text-lt text-sp">Know More</a>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- blog single ends -->
+                        
+
+                    </div>
+                    <!-- == blog row ends == -->
+                </div>
+            </section>
+            <!-- ============== blog block ends ============== -->
+{% endblock %}
