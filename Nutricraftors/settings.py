@@ -78,13 +78,13 @@ WSGI_APPLICATION = 'Nutricraftors.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'demo_1',
-        'USER': 'Altamash2107',
-        'PASSWORD': '12345678',
-        'HOST': 'database-2.ccbze67vrepy.ap-south-1.rds.amazonaws.com',
-        # 'HOST': 'localhost',
-        'PORT': '5432'
+        'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': 'demo_1',
+        # 'USER': 'Altamash2107',
+        # 'PASSWORD': '12345678',
+        # 'HOST': 'database-2.ccbze67vrepy.ap-south-1.rds.amazonaws.com',
+        # # 'HOST': 'localhost',
+        # 'PORT': '5432'
     }
 }
 
