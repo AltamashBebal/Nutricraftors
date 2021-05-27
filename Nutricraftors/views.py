@@ -126,7 +126,7 @@ def meals(request):
 
 
 def choosePlans(request):
-    return render(request, 'choosePlan.html')
+    return render(request, 'chooseplan.html')
 
 
 def transformationKnowMore(request, name):
