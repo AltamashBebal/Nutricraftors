@@ -78,15 +78,15 @@ WSGI_APPLICATION = 'Nutricraftors.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        # 'USER': 'Altamash2107',
-        # 'PASSWORD': '12345678',
-        # 'HOST': 'database-2.ccbze67vrepy.ap-south-1.rds.amazonaws.com',
-        # # 'HOST': 'localhost',
-        # 'PORT': '5432'
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'MYSQL1ST',
+        'USER': 'Altamash2107',
+        'PASSWORD': '12345678',
+        'HOST': 'mysql-1.ccbze67vrepy.ap-south-1.rds.amazonaws.com',
+        'PORT': '3306',
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
