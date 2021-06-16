@@ -45,7 +45,7 @@ def login(request):
         user = auth.authenticate(username=username, password=password)
 
         if user is not None:
-            print(user)
+        
             auth.login(request, user)
             if username == "admin@gmail.com":
                 return redirect("AdminHome")
@@ -193,7 +193,7 @@ def checkout(request):
         location = request.POST['location']
         pincode = request.POST['pincode']
         add = flat+", "+street+", "+location+", "+pincode
-        print(add)
+       
         orderID = "ORDERID"+str(random_with_N_digits(3))
         newOrder = OT(
             type=type, total=total, vegOrJain=vegorjain, user=request.user, orderId=orderID, address=add)
